@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECodePad</title>
+    <link rel="shortcut icon" type="image/png" href="assets/img/logo.png"/>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            display: flex;
+        }
+
+        .code-area{
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            height: 90vh;
+            border-right: 1px solid black;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+
+        .code-area textarea{
+            resize: none;
+            outline: none;
+            width: 100%;
+            height: 33.33%;
+            font-size: 19px;
+            padding: 15px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: black;
+        }
+
+        .preview-area{
+            width: 60%;
+            position: absolute;
+            bottom: 0;
+            height: 90%;
+
+        }
+
+        .preview-area iframe{
+            width: 100%;
+            height: 100%;
+            border: 2px red;
+            height: 90vh;
+            position: absolute;
+            bottom: 10;
+            left: 0;
+            
+        }
+
+    </style>
+</head>
+,<body>
+    <div class="header" style="background-color: rgb(17, 17, 17); text-align: center; display: flex; height: 10vh; width: 100%;">
+        <div class="logo"> <img src="assets/img/logo.png" style="width: 50px; position: absolute; top: 8px;left: 12px; border-radius: 100px; border: 2px solid white;"></div>
+        <p style="font-size: 40px; color: orangered; font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; padding-left: 70px; text-align: center; padding-top: 8px;">ECodePad</p>
+        <div class="pi"><img src="assets/img/Screenshot (119).png" style="width: 50px; padding-top: 2px; left: 80%; position: absolute;">
+            <img src="assets/img/Screenshot (120).png" style="width: 50px; padding-top: 2px; left: 85%; position: absolute;">
+            <img src="assets/img/Screenshot (121).png" style="width: 50px; padding-top: 12px; left: 90%; position: absolute;">
+        </div>
+    </div><br><br>
+</body>
+<body>
+    <div class="preview-area">
+        <iframe id="preview-window"></iframe>
+    </div>
+    <div class="code-area">
+        <textarea id="htmlCode" placeholder="Enter HTML Code" style="color: orangered;" oninput="showPreview()"></textarea>
+        <textarea id="cssCode" placeholder="Enter CSS Code" style="color: rgb(0, 68, 255);" oninput="showPreview()"></textarea>
+        <textarea id="jsCode" placeholder="Enter JavaScript Code" style="color: rgb(255, 238, 0);" oninput="showPreview()"></textarea>
+    </div>
+    <script>
+
+        function showPreview(){
+            var htmlCode = document.getElementById("htmlCode").value;
+            var cssCode ="<style>"+ document.getElementById("cssCode").value + "</style>";
+            var jsCode ="<scri"+"pt>"+ document.getElementById("jsCode").value + "</scri"+"pt>";
+            var frame = document.getElementById("preview-window").contentWindow.document;
+            frame.open();
+            frame.write(htmlCode+cssCode+jsCode);
+            frame.close;
+        }
+
+    </script>
+</body>
+</html>

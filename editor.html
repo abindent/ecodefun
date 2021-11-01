@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editor</title>
+	<link rel="stylesheet" type="text/css" href="https://codemirror.net/lib/codemirror.css">
+	<script type="text/javascript" src="https://codemirror.net/lib/codemirror.js"></script>
+	<script  type="text/javascript" src="https://codemirror.net/mode/xml/xml.js"></script>
+	<script  type="text/javascript" src="https://codemirror.net/mode/css/css.js"></script>
+	<script  type="text/javascript" src="https://codemirror.net/mode/javascript/javascript.js"></script>
+	<script src="https://kit.fontawesome.com/580eec0a32.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/style2.css" class="css">
+</head>
+<body>
+
+	<div class="movingtext">
+		<marquee behaviour="scrool" direction="left" scrollamount="3">
+			<p><i class="fas fa-praying-hands"></i>&nbsp;Welcome to <a href="index.html" target="_blank">ECODEPEN.</a>&nbsp;&nbsp;Fell Free to &nbsp;<i class="fas fa-phone"></i><a href="index.html#contact" target="_blank">&nbsp;Contact Us</a></p>
+		</marquee>
+		
+	</div>
+
+	<div class="header">
+		<button id="run-btn">Run</button><br />
+	</div>
+	<div class="editor">
+		<div class="code">
+			<div class="html-code" ><strong>HTML CODE</strong></div>
+			<div class="css-code"><strong>CSS CODE</strong></div>
+			<div class="js-code"><strong>JAVASCRIPT CODE</strong></div>
+		</div>
+		<div class="preview">
+			<iframe id="preview-window"></iframe>
+	</div>
+	<script type="text/javascript" src="js/code.js"></script>
+	
+</body>
+</html>
