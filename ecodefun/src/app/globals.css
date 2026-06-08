@@ -1,0 +1,250 @@
+/* 1. Google Fonts Import */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@import "tailwindcss";
+
+
+/* 2. Global CSS Variables (Design Tokens) */
+:root {
+  --font-outfit: "Outfit", sans-serif;
+  --font-jetbrains: "JetBrains Mono", monospace;
+
+  --bg-base: #06060d;
+  --bg-surface: #0d0d1a;
+  --bg-elevated: #131326;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-accent: rgba(255, 104, 53, 0.35);
+
+  --text-primary: #f0f0f8;
+  --text-secondary: #888aaa;
+  --text-muted: #4a4a66;
+
+  --accent-orange: #ff6835;
+  --accent-blue: #4488ff;
+  --accent-yellow: #ffd700;
+  --accent-green: #00d9a3;
+
+  --glow-orange: rgba(255, 104, 53, 0.18);
+  --glow-blue: rgba(68, 136, 255, 0.18);
+}
+
+/* 3. Tailwind v4 Theme Configuration */
+@theme {
+  /* Colors */
+  --color-bg-base: var(--bg-base);
+  --color-bg-surface: var(--bg-surface);
+  --color-bg-elevated: var(--bg-elevated);
+  
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-yellow: var(--accent-yellow);
+  --color-accent-green: var(--accent-green);
+
+  /* Font Families */
+  --font-sans: var(--font-outfit), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  /* Custom Animations */
+  --animate-fade-up: fadeUp 0.6s ease forwards;
+  --animate-fade-in: fadeIn 0.4s ease forwards;
+  --animate-pulse2: pulse2 3s ease-in-out infinite;
+
+  /* Custom Keyframes */
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes pulse2 {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+  }
+}
+
+/* 4. Base Elements Overrides */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+/* 5. Custom Utilities and Component Classes */
+
+/* Scrollbar styling */
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--bg-base);
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #2a2a40;
+    border-radius: 3px;
+    &:hover {
+      background: var(--accent-orange);
+    }
+  }
+}
+
+/* Apply scrollbar globally to html */
+html {
+  @mixin custom-scrollbar;
+}
+
+/* Backgrounds & Visual FX */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.08) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+.glow-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+/* UI Elements & Components */
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-orange);
+    border-radius: 1px;
+    transition: width 0.25s ease;
+  }
+  
+  &:hover {
+    color: var(--text-primary);
+    &::after {
+      width: 100%;
+    }
+  }
+  
+  &.active {
+    color: var(--text-primary);
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  
+  &:hover {
+    border-color: var(--border-accent);
+    box-shadow: 0 0 32px var(--glow-orange);
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--accent-orange);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px var(--glow-orange);
+    filter: brightness(1.1);
+  }
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 28px;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  
+  &:hover {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(255, 104, 53, 0.12);
+  border: 1px solid rgba(255, 104, 53, 0.25);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent-orange);
+  text-transform: uppercase;
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-orange);
+}
+
+/* Stagger animation delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }

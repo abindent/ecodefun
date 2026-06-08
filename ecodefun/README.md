@@ -1,36 +1,102 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeFun — Next.js Rebuild
 
-## Getting Started
+A modern rebuild of the EcodeFun app using **Next.js 14 (App Router)**, **TypeScript**, and **Tailwind CSS**.
 
-First, run the development server:
+## ✦ Pages
+
+| Route | Page |
+|---|---|
+| `/` | Home — hero, about, features |
+| `/ide` | Choose between ECodePen and ECodePad |
+| `/editor` | **ECodePen** — full CodeMirror IDE (HTML / CSS / JS + Run) |
+| `/codepad` | **ECodePad** — live-preview textarea scratchpad |
+| `/tutorial` | Tutorial videos |
+| `/premium` | Premium / Coming Soon |
+| `/policy` | Privacy Policy |
+
+## ✦ Tech Stack
+
+- **Next.js 14** — App Router, TypeScript
+- **Tailwind CSS** — utility-first styling
+- **@uiw/react-codemirror** — CodeMirror 6 for the ECodePen editor
+- **lucide-react** — icons
+
+## ✦ Getting Started
 
 ```bash
+# 1. Install dependencies
+npm install
+
+# 2. Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 3. Open in browser
+# http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✦ Project Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+codefun-next/
+├── app/
+│   ├── layout.tsx            # Root layout (fonts, globals)
+│   ├── globals.css           # CSS variables & base styles
+│   ├── not-found.tsx         # Custom 404
+│   ├── (site)/               # Route group — pages with Navbar + Footer
+│   │   ├── layout.tsx
+│   │   ├── page.tsx          # Home
+│   │   ├── ide/page.tsx
+│   │   ├── tutorial/page.tsx
+│   │   ├── premium/page.tsx
+│   │   └── policy/page.tsx
+│   └── (tools)/              # Route group — full-screen editors
+│       ├── layout.tsx
+│       ├── editor/page.tsx   # ECodePen
+│       └── codepad/page.tsx  # ECodePad
+├── components/
+│   ├── Navbar.tsx
+│   ├── Footer.tsx
+│   └── EditorPane.tsx        # CodeMirror wrapper (client)
+└── public/
+    └── assets/               # Place your logo, videos, etc. here
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✦ Adding Your Assets
 
-## Learn More
+Place your files in the `public/` directory:
 
-To learn more about Next.js, take a look at the following resources:
+```
+public/
+└── assets/
+    ├── logo.png
+    ├── favicon.png
+    ├── bg.jpg
+    ├── Sinchan.mp4       # ECodePen tutorial video
+    └── Ananyo.mp4        # ECodePad tutorial video
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Reference them in code as `/assets/logo.png` (Next.js serves `public/` from root).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✦ Updating the Navbar Logo
 
-## Deploy on Vercel
+The logo currently uses a `Code2` icon from lucide-react. To use your own `logo.png`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```tsx
+// In components/Navbar.tsx, replace the icon div with:
+import Image from "next/image";
+<Image src="/assets/logo.png" width={36} height={36} alt="CodeFun" style={{ borderRadius: "8px" }} />
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✦ Deploy to Firebase Hosting
+
+```bash
+npm run build
+# Copy the .next/out/ folder (or use next export) to Firebase public dir
+firebase deploy
+```
+
+Or deploy directly to Vercel:
+
+```bash
+npx vercel
+```
