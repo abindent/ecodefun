@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Code2, Layers, ArrowRight, ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "Choose IDE | CodeFun",
+  title: "Choose IDE",
 };
 
 export default function IdePage() {

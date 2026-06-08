@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Sparkles, ArrowRight, Check } from "lucide-react";
 
 export const metadata = {
-  title: "Premium | CodeFun",
+  title: "Premium",
 };
 
 export default function PremiumPage() {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Code2, Layers, Zap, Globe, ChevronRight } from "lucide-react";
 
 export const metadata = {
-  title: "Home | CodeFun",
+  title: "Home",
 };
 
 export default function HomePage() {

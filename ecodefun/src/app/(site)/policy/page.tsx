@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Shield } from "lucide-react";
 
 export const metadata = {
-  title: "Privacy Policy | CodeFun",
+  title: "Privacy Policy",
 };
 
 const sections = [
@@ -98,12 +98,12 @@ export default function PolicyPage() {
           <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem", lineHeight: 1.7 }}>
             At CodeFun, accessible from{" "}
             <a
-              href="https://ecodefun.firebaseapp.com/"
+              href="https://ecodefun.vercel.app/"
               target="_blank"
               rel="noreferrer"
               style={{ color: "var(--accent-orange)", textDecoration: "none" }}
             >
-              ecodefun.firebaseapp.com
+              ecodefun.vercel.app
             </a>
             , one of our main priorities is the privacy of our visitors. This
             document contains the types of information collected and how we use
@@ -184,10 +184,10 @@ export default function PolicyPage() {
           <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", marginBottom: "20px" }}>
             Questions about our policy? Contact us at{" "}
             <a
-              href="mailto:maitrababai2007@gmail.com"
+              href="mailto:osc.opensourcecodes+ecodefun@gmail.com"
               style={{ color: "var(--accent-orange)", textDecoration: "none" }}
             >
-              maitrababai2007@gmail.com
+              ecodefun@gmail.com
             </a>
           </p>
           <Link href="/" className="btn-ghost">

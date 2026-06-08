@@ -1,7 +1,7 @@
 import { Play, Code2, Layers } from "lucide-react";
 
 export const metadata = {
-  title: "Tutorial | CodeFun",
+  title: "Tutorial",
 };
 
 export default function TutorialPage() {

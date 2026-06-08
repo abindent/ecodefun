@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Code2, Send } from "lucide-react";
-import { FaYoutube as Youtube, FaGithub as Github, FaLinkedin as Linkedin } from "react-icons/fa";
+import { FaReddit as Reddit, FaGithub as Github, FaLinkedin as Linkedin, FaDiscord as Discord } from "react-icons/fa";
 
 const footerLinks = [
   { href: "/", label: "Home" },
@@ -81,10 +81,11 @@ export default function Footer() {
               {[
                 {
                   icon: <Linkedin size={16} />,
-                  href: "https://www.linkedin.com/in/sinchan-maitra-22a303217/",
+                  href: "https://www.linkedin.com/in/opensourcecodes/",
                 },
-                { icon: <Github size={16} />, href: "https://github.com/Think-With-Us" },
-                { icon: <Youtube size={16} />, href: "#" },
+                { icon: <Github size={16} />, href: "https://github.com/abindent" },
+                { icon: <Reddit size={16} />, href: "https://www.reddit.com/r/OpenSourceGame/" },
+                { icon: <Discord size={16} />, href: "https://discord.gg/n3q3HYMnkV" },
               ].map((s, i) => (
                 <a
                   key={i}
@@ -145,7 +146,7 @@ export default function Footer() {
               <p>Jalpaiguri, West Bengal</p>
               <p>PIN 735101, India</p>
               <a
-                href="mailto:maitrababai2007@gmail.com"
+                href="mailto:osc.opensourcecodes+ecodefun@gmail.com"
                 style={{
                   color: "var(--accent-orange)",
                   textDecoration: "none",
@@ -154,7 +155,7 @@ export default function Footer() {
                   fontSize: "0.8rem",
                 }}
               >
-                maitrababai2007@gmail.com
+                ecodefun@gmail.com
               </a>
               <p style={{ marginTop: "4px", fontSize: "0.85rem" }}>
                 +91 98831 05019

@@ -79,6 +79,7 @@ body {
   color: var(--text-primary);
   font-family: var(--font-sans);
   scroll-behavior: smooth;
+  data-scroll-behavour: smooth;
 }
 
 /* 5. Custom Utilities and Component Classes */
